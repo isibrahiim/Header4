@@ -1,0 +1,238 @@
+:root {
+  --color-primary: #3f51b5;
+  --color-primary-light: #c5cae9;
+  --color-primary-dark: #303f9f;
+  --color-secondary: #f50057;
+  --color-secondary-light: #f8bbd0;
+  --color-secondary-dark: #c51162;
+  --color-dark: #333;
+  --color-light: #fff;
+  --color-background: #f4f4f4;
+  --color-background-dark: #e0e0e0;
+  --color-border: #cfcfcf;
+  --shadow-box: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --shadow-box-dark: 0 2px 5px rgba(0, 0, 0, 0.25);
+  --color-hover: #aa332a;
+  --color-accent: #aa332a;
+  --color-accent-dark: #922b24;
+  --color-dark-gray: #262221;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--color-background);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-dark-gray);
+  color: var(--color-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  box-shadow: var(--shadow-box);
+  z-index: 1000;
+}
+header .logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+header .logo img {
+  width: 80px;
+  height: auto;
+  border: 2px solid var(--color-light);
+  border-radius: 50%;
+}
+header .logo span {
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--color-light);
+}
+header nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+header nav ul {
+  display: flex;
+  list-style: none;
+}
+header nav ul li {
+  margin: 0 1rem;
+}
+header nav ul li a {
+  color: inherit;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+header nav ul li a:hover {
+  color: var(--color-accent);
+}
+header .btn-group {
+  display: flex;
+  gap: 0.5rem;
+}
+header .toggle-menu {
+  background: none;
+  border: none;
+  display: none;
+  cursor: pointer;
+  padding: 5px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+header .toggle-menu span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--color-light);
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+header .toggle-menu.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+header .toggle-menu.active span:nth-child(2) {
+  opacity: 0;
+}
+header .toggle-menu.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.btn {
+  background: none;
+  color: var(--color-light);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+.btn.get-started-btn {
+  background-color: var(--color-accent);
+  padding: 1.5rem 1.5rem;
+  border-radius: 5px;
+}
+.btn.get-started-btn:hover {
+  background-color: var(--color-accent-dark);
+}
+
+.hero {
+  position: relative;
+  background: url("../images/landingPageImage.png") no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-light);
+  text-align: center;
+  padding: 0 1rem;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+.hero .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+.hero .hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.hero .hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+.hero .hero-content .get-started-btn {
+  background-color: var(--color-accent);
+  color: var(--color-light);
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.hero .hero-content .get-started-btn:hover {
+  background-color: var(--color-accent-dark);
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+  header nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+    display: none;
+  }
+  header nav ul.show {
+    display: block;
+  }
+  header .btn-group {
+    display: none;
+  }
+  header .btn-group.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  header .btn-group.show .login-btn {
+    margin-right: 30px;
+  }
+  header .btn-group.show .get-started-btn {
+    display: none;
+  }
+  header .toggle-menu {
+    display: block;
+  }
+  .hero {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+  .hero .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero .hero-content p {
+    font-size: 1rem;
+  }
+  .hero .hero-content .get-started-btn {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
